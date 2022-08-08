@@ -22,7 +22,7 @@ public class HotelManagementController {
     }
 
     @PostMapping
-    public ResponseEntity<CustomerDetails> saveBook(@RequestBody CustomerDetails cd)
+    public ResponseEntity<CustomerDetails> saveDetail(@RequestBody CustomerDetails cd)
     {
         return new ResponseEntity<CustomerDetails>(service.saveDetail(cd), HttpStatus.CREATED);
     }
@@ -33,17 +33,17 @@ public class HotelManagementController {
         return service.getAllDetail();
     }
     @GetMapping("{id}")
-    public ResponseEntity<CustomerDetails> getBookById(@PathVariable("id")int id)
+    public ResponseEntity<CustomerDetails> getDetailById(@PathVariable("id")int id)
     {
         return new ResponseEntity<CustomerDetails>(service.getDetailById(id),HttpStatus.OK);
     }
     @PutMapping("{id}")
-    public ResponseEntity<CustomerDetails> updateBook(@PathVariable("id")int id,@RequestBody CustomerDetails cd)
+    public ResponseEntity<CustomerDetails> updateDetail(@PathVariable("id")int id,@RequestBody CustomerDetails cd)
     {
         return new ResponseEntity<CustomerDetails>(service.updateDetail(cd,id), HttpStatus.OK);
     }
     @DeleteMapping("{id}")
-    public ResponseEntity<String> deleteBook(@PathVariable("id")int id)
+    public ResponseEntity<String> deleteDetail(@PathVariable("id")int id)
     {
         service.deleteDetail(id);
         return new ResponseEntity<String>("Detail deleted successfully",HttpStatus.OK);
